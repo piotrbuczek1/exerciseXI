@@ -14,11 +14,13 @@ pipeline {
                 // Tutaj normalnie byłyby kroki testowania, np. mvn test
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Tutaj normalnie byłyby kroki deploymentu
-            }
-        }
+    stage('Deploy') {
+    when {
+        branch 'main' // Wykonaj tylko dla gałęzi 'main'
+    }
+    steps {
+        echo 'Deploying...'
+    }
+}
     }
 }
